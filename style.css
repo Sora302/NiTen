@@ -1,0 +1,232 @@
+/* ==================================================
+   日本天満党 公式サイト CSS
+   コンセプト：デザイン事務所 / 建築 / 静かな権威性
+   ================================================== */
+
+/* ------------------ Reset & Base ------------------ */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: "Zen Kaku Gothic New", "Noto Sans JP", sans-serif;
+  background-color: #0e0f12;
+  color: #e6e6e6;
+  line-height: 1.8;
+  letter-spacing: 0.04em;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+/* ------------------ Typography ------------------ */
+h1, h2, h3 {
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+
+h1.logo {
+  font-size: 1.25rem;
+  letter-spacing: 0.2em;
+}
+
+h2 {
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  margin-bottom: 24px;
+}
+
+p {
+  max-width: 720px;
+  font-size: 0.95rem;
+  color: #cfcfcf;
+}
+
+/* ------------------ Header ------------------ */
+.site-header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: rgba(14, 15, 18, 0.85);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  z-index: 1000;
+}
+
+.site-header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 72px;
+}
+
+.global-nav ul {
+  list-style: none;
+  display: flex;
+  gap: 32px;
+  margin: 0;
+  padding: 0;
+}
+
+.global-nav a {
+  text-decoration: none;
+  font-size: 0.8rem;
+  letter-spacing: 0.15em;
+  color: #e6e6e6;
+  position: relative;
+}
+
+.global-nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 100%;
+  height: 1px;
+  background: #e6e6e6;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.4s ease;
+}
+
+.global-nav a:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* ------------------ Hero ------------------ */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  background: linear-gradient(180deg, #0e0f12 0%, #0b0c0f 100%);
+}
+
+.hero .container {
+  padding-top: 120px;
+}
+
+.hero-catch {
+  white-space: nowrap;
+  line-height: 1.15;
+  font-size: clamp(2.4rem, 5vw, 3.6rem);
+  font-weight: 900;
+  letter-spacing: 0.18em;
+  word-break: keep-all;
+  color: #e6e6e6;
+  margin-bottom: 32px;
+}
+
+.hero-title {
+  font-size: clamp(1.2rem, 2.2vw, 1.6rem);
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  margin: 0 0 32px;
+  color: #bdbdbd;
+}
+
+.hero-text {
+  font-size: 1rem;
+  color: #d6d6d6;
+}
+
+/* ------------------ Sections ------------------ */
+section {
+  padding: 160px 0;
+}
+
+section:nth-of-type(even) {
+  background-color: #111217;
+}
+
+.statement p {
+  margin-bottom: 24px;
+}
+
+/* ------------------ About ------------------ */
+.about p {
+  max-width: 680px;
+}
+
+/* ------------------ Recruit / School ------------------ */
+.recruit p,
+.school p {
+  max-width: 640px;
+}
+
+/* ------------------ Contact ------------------ */
+.contact .notice {
+  font-size: 0.8rem;
+  color: #9a9a9a;
+  border-left: 1px solid #444;
+  padding-left: 24px;
+}
+
+/* ------------------ Footer ------------------ */
+.site-footer {
+  padding: 80px 0;
+  background-color: #0b0c0f;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.site-footer p {
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  color: #777;
+}
+
+/* ------------------ Responsive ------------------ */
+@media (max-width: 768px) {
+  .global-nav ul {
+    gap: 16px;
+  }
+
+  section {
+    padding: 120px 0;
+  }
+
+  .hero-title {
+    line-height: 1.2;
+  }
+
+/* ------------------ Scroll Animation ------------------ */
+section {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 1.2s ease, transform 1.2s ease;
+}
+
+section.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+
+/* 文字アニメーション用 */
+.js-split span {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(12px);
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.js-split.is-animated span {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+}
+}
